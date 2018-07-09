@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" class="page-home">
+<head>
+    <meta charset="utf-8"/>
+    <title>derhede返利</title>
+    <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no"/>
+    <meta name="imagemode" content="force"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" content="折扣,优惠,返利"/>
+    <meta name="keywords" content="折扣,优惠,返利"/>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+    <link rel="apple-touch-icon-precomposed" href="touch-icon.png"/>
+
+    <link rel="stylesheet" type="text/css" href="themes/css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="themes/css/home.css"/>
+
+    <script type="text/javascript" src="themes/js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="themes/js/banner-he.js"></script>
+    <script type="text/javascript" src="themes/js/banner.js"></script>
+
+</head>
+<body>
+
+<header id="ui-header">
+    <div class="ui-centre">
+        <section id="slider">
+            <div class="demo-item">
+                <div class="demo-block">
+                    <div class="ui-slider" style="padding-top:49.25%">
+                        <ul class="ui-slider-content" style="width: 300%">
+                            <li><span style="background-image:url(themes/img/banner/banner9.png)"></span></li>
+                            <li><span style="background-image:url(themes/img/banner/banner7.jpg)"></span></li>
+                            <li><span style="background-image:url(themes/img/banner/banner8.jpg)"></span></li>
+                            <li><span style="background-image:url(themes/img/banner/banner9.jpg)"></span></li>
+                        </ul>
+                    </div>
+                </div>
+                <script class="demo-script">
+                    $(window).scroll(function () {
+                        if ($(window).scrollTop() > 0) {
+                            $("#headsearch").addClass("ui-form-color-nav");
+                        }else if($(window).scrollTop() == 0){
+                            $("#headsearch").removeClass("ui-form-color-nav");
+                        }
+                    });
+                    (function (){
+                        var slider = new fz.Scroll('.ui-slider', {
+                            role: 'slider',
+                            indicator: true,
+                            autoplay: true,
+                            interval: 5000
+                        });
+
+                        slider.on('beforeScrollStart', function(fromIndex, toIndex) {
+                            console.log(fromIndex,toIndex)
+                        });
+
+                        slider.on('scrollEnd', function(cruPage) {
+                            console.log(cruPage)
+                        });
+                    })();
+                </script>
+            </div>
+        </section>
+        <section id="ui-form">
+            <div class="ui-form-color " id="headsearch">
+                <div class="ui-form-logo fl">
+                    <a href="#"><span class="" data-src="" style="background-image: url(themes/icon/logo1.png); background-size: contain; opacity: 1;"></span></a>
+                </div>
+                <div class="ui-form-input fl"><input type="text" placeholder="搜索商品名称"/></div>
+            </div>
+        </section>
+    </div>
+</header>
+
+
+
+
+
+<section class="category ui-border-b" style="margin-top:.6rem">
+    <ul class="clearfix">
+        <li>
+            <a data-refresh="" data-track="Flight" data-cat="flight"  href="#">
+                <span style="background-image: url(themes/icon/ic1.png); background-size: contain; opacity: 1;" data-src="" class=""></span>
+                <strong>充值</strong>
+            </a>
+        </li>
+        <li>
+            <a data-refresh="" data-track="Hotel" data-cat="hotel"  href="#">
+                <span style="background-image: url(themes/icon/ic2.png); background-size: contain; opacity: 1;" data-src="" class=""></span>
+                <strong>礼券</strong>
+            </a>
+        </li>
+        <li>
+            <a data-refresh="" data-track="Vacation" data-cat="vacation"  href="#">
+                <span style="background-image: url(themes/icon/ic3.png); background-size: contain; opacity: 1;" data-src="" class=""></span>
+                <strong>积分</strong>
+            </a>
+        </li>
+        <li>
+            <a data-refresh="" data-track="Destination" data-cat="Destination"  href="#">
+                <span style="background-image: url(themes/icon/ic4.png); background-size: contain; opacity: 1;" data-src="" class=""></span>
+                <strong>正品</strong>
+            </a>
+        </li>
+        <li>
+            <a data-refresh="" data-track="Ticket" data-cat="ticket"  href="#">
+                <span style="background-image: url(themes/icon/ic5.png); background-size: contain; opacity: 1;" data-src="" class=""></span>
+                <strong>门票</strong>
+            </a>
+        </li>
+        <li>
+            <a data-refresh="" data-track="Visa" data-cat="visa"  href="#">
+                <span style="background-image: url(themes/icon/ic6.png); background-size: contain; opacity: 1;" data-src="" class=""></span>
+                <strong>全球</strong>
+            </a>
+        </li>
+        <li>
+            <a data-refresh="" data-track="Train" data-cat="train"  href="#">
+                <span style="background-image: url(themes/icon/ic7.png); background-size: contain; opacity: 1;" data-src="" class=""></span>
+                <strong>高铁</strong>
+            </a>
+        </li>
+        <li>
+            <a data-refresh="" data-track="Member" data-cat="member"  href="#">
+                <span style="background-image: url(themes/icon/ic9.png); background-size: contain; opacity: 1;" data-src="" class=""></span>
+                <strong>邮件</strong>
+            </a>
+        </li>
+    </ul>
+</section>
+
+
+
+
+
+<div class="divider ui-border-b"></div>
+
+<section id="c" class="ui-header-cr ui-border-b">
+    <header class="ui-header-ti">
+        <h2>精选橱窗</h2>
+        <a href="#" class="more">更多&nbsp;&nbsp;&nbsp;<i class="ui-icon-arrow"></i></a>
+    </header>
+
+    <main class="ui-main-br">
+        <div class="ui-img">
+            <a href="#"><img src="themes/img/banner/banner5.jpg" width="100%" /></a>
+        </div>
+    </main>
+</section>
+
+
+
+
+<div class="divider ui-border-b "></div>
+
+
+
+
+<section id="V" class="ui-header-cr" style="margin-bottom:0; padding-bottom:0;">
+    <header class="ui-header-ti">
+        <h2>新品上架</h2>
+        <a href="#" class="more"></a>
+    </header>
+    <section class="clearfix around-other">
+        <ul>
+            <li class="ui-border-b clearfix">
+                <a href="#">
+                    <div class="around-other-image fl">
+                        <div class="around-other-thumbnail" style="background-size:cover; background-image:url(themes/img/pd/pd1.jpg); opacity:1;"></div>
+                    </div>
+                    <div class="around-other-info ">
+                        <h3>Apple iPhone 6s</h3>
+                        <div><span>Apple iPhone 6s (A1700) 64G 玫瑰金色 移动联通电信4G手机.选择下方的移动、联通、电信优惠购，套餐有优惠，还有话费返还</span> <p class="around-other-price price"><span>￥</span> <strong>4788.00</strong></p></div>
+                    </div>
+                </a>
+            </li>
+            <li class="ui-border-b">
+                <a href="#">
+                    <div class="around-other-image fl">
+                        <div class="around-other-thumbnail" style="background-size:cover; background-image:url(themes/img/pd/pd2.jpg); opacity:1;"></div>
+                    </div>
+                    <div class="around-other-info">
+                        <h3>苹果(Apple) iPhone 7</h3>
+                        <div><span>移动联通电信4G手机 亮黑 128G 标配 电子发票送透明后壳+钢化膜 苹果产品激活后不支持七天无理由退换货</span> <p class="around-other-price price"><span>￥</span> <strong>6288.00</strong></p></div>
+                    </div>
+                </a>
+            </li>
+            <li class="ui-border-b">
+                <a href="#">
+                    <div class="around-other-image fl">
+                        <div class="around-other-thumbnail" style="background-size:cover; background-image:url(themes/img/pd/pd3.jpg); opacity:1;"></div>
+                    </div>
+                    <div class="around-other-info">
+                        <h3>苹果(Apple) iPhone 6s</h3>
+                        <div><span>4G手机 金色 公开版(16G ROM)标配苹果产品拆封激活后不支持七天无理由退换货 购买苹果6S plus</span> <p class="around-other-price price"><span>￥</span> <strong>3988.00</strong></p></div>
+                    </div>
+                </a>
+            </li>
+            <li class="ui-border-b clearfix">
+                <a href="#">
+                    <div class="around-other-image fl">
+                        <div class="around-other-thumbnail" style="background-size:cover; background-image:url(themes/img/pd/pd4.jpg); opacity:1;"></div>
+                    </div>
+                    <div class="around-other-info ">
+                        <h3>苹果(Apple) iPhone 7</h3>
+                        <div><span>移动联通电信4G手机 玫瑰金 128G 标配原封未激活！激活后不支持七天无理由退换！苹果7P抢购</span> <p class="around-other-price price"><span>￥</span> <strong>5888.00</strong></p></div>
+                    </div>
+                </a>
+            </li>
+            <li class="ui-border-b">
+                <a href="#">
+                    <div class="around-other-image fl">
+                        <div class="around-other-thumbnail" style="background-size:cover; background-image:url(themes/img/pd/pd5.jpg); opacity:1;"></div>
+                    </div>
+                    <div class="around-other-info">
+                        <h3>魅族 魅蓝U20</h3>
+                        <div><span>32GB 全网通公开版 银色 移动联通电信4G手机 双卡双待双面玻璃材质，金属指纹全网通！ 魅族新品！</span> <p class="around-other-price price"><span>￥</span> <strong>1299.00</strong></p></div>
+                    </div>
+                </a>
+            </li>
+            <li class="ui-border-b">
+                <a href="#">
+                    <div class="around-other-image fl">
+                        <div class="around-other-thumbnail" style="background-size:cover; background-image:url(themes/img/pd/pd6.jpg); opacity:1;"></div>
+                    </div>
+                    <div class="around-other-info">
+                        <h3>魅族 MX6 </h3>
+                        <div><span>4GB+32GB 全网通公开版 香槟金 移动联通电信4G手机 双卡双待</span> <p class="around-other-price price"><span>￥</span> <strong>1999.00</strong></p></div>
+                    </div>
+                </a>
+            </li>
+            <li class="ui-border-b">
+                <a href="#">
+                    <div class="around-other-image fl">
+                        <div class="around-other-thumbnail" style="background-size:cover; background-image:url(themes/img/pd/pd7.jpg); opacity:1;"></div>
+                    </div>
+                    <div class="around-other-info">
+                        <h3>魅族 PRO 6 </h3>
+                        <div><span>32GB 全网通电信版 银白色 移动联通电信4G手机 双卡双待购机送移动电源、智能手环！数量有限！赠完即止！</span> <p class="around-other-price price"><span>￥</span> <strong>2299.00</strong></p></div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </section>
+</section>
+<div class="divider ui-border-b "></div>
+<section id="Cs" class="ui-header-cr  clearfix">
+    <header class="ui-header-ti">
+        <h2>促销活动</h2>
+        <a class="more" href="#">更多&nbsp;&nbsp;&nbsp;<i class="ui-icon-arrow"></i></a>
+    </header>
+    <section class="destination">
+        <ul class="clearfix">
+            <li>
+                <a href="#">
+                    <div class="destination-image"><span class="" data-src="" style="background-image: url(themes/img/pd/a1.jpg); opacity: 1;"></span></div>
+                    <div class="destination-title">
+                        <h3>索尼特价专区</h3>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="destination-image"><span class="" data-src="" style="background-image: url(themes/img/pd/a2.jpg); opacity: 1;"></span></div>
+                    <div class="destination-title">
+                        <h3>双核旗舰机</h3>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="destination-image"><span class="" data-src="" style="background-image: url(themes/img/pd/a3.jpg); opacity: 1;"></span></div>
+                    <div class="destination-title">
+                        <h3>蚂蚁花呗免息</h3>
+                    </div>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="destination-image"><span class="" data-src="" style="background-image: url(themes/img/pd/a4.jpg); opacity: 1;"></span></div>
+                    <div class="destination-title">
+                        <h3>360旗舰机</h3>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </section>
+</section>
+
+
+
+
+<div class="" style="height:3.4rem; width:100%; overflow:hidden;"></div>
+<footer id="" class="ui-footer ui-border-t">
+    <ul class="clearfix">
+        <li>
+            <a href="index" class="on"><i class="ui-icon-home"></i><p>首页</p></a>
+        </li>
+        <li>
+            <a href="search"><i class="ui-icon-search" style="font-size:42px;"></i><p>搜索</p></a>
+        </li>
+
+        <li>
+            <a href="cart"><i class="ui-icon-cart"></i><p>购物车</p></a>
+        </li>
+        <li>
+            <a href="user"><i class="ui-icon-personal"></i><p>我的</p></a>
+        </li>
+    </ul>
+</footer>
+
+
+</body>
+</html>
