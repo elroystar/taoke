@@ -37,8 +37,6 @@ public interface TaoKeAPIService {
 
 	Map<String, Object> createTpwdTbk(QueryParameterDTO queryParameterDTO);
 
-	Map<String, Object> createAdzoneTbk(QueryParameterDTO queryParameterDTO);
-
 	Map<String, Object> getOrderNewuserDgTbk(QueryParameterDTO queryParameterDTO);
 
 	Map<String, Object> getOrderNewuserScTbk(QueryParameterDTO queryParameterDTO);

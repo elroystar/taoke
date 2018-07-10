@@ -1,13 +1,5 @@
 package com.derhede.taoke.service.impl;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
-
 import com.alibaba.fastjson.JSONObject;
 import com.derhede.taoke.dto.QueryParameterDTO;
 import com.derhede.taoke.dto.TbkItemGetRequestDTO;
@@ -17,43 +9,17 @@ import com.taobao.api.ApiException;
 import com.taobao.api.DefaultTaobaoClient;
 import com.taobao.api.TaobaoClient;
 import com.taobao.api.internal.util.StringUtils;
-import com.taobao.api.request.JuItemsSearchRequest;
+import com.taobao.api.request.*;
 import com.taobao.api.request.JuItemsSearchRequest.TopItemQuery;
-import com.taobao.api.request.TbkAdzoneCreateRequest;
-import com.taobao.api.request.TbkCouponGetRequest;
-import com.taobao.api.request.TbkDgItemCouponGetRequest;
-import com.taobao.api.request.TbkDgNewuserOrderGetRequest;
-import com.taobao.api.request.TbkItemInfoGetRequest;
-import com.taobao.api.request.TbkItemRecommendGetRequest;
-import com.taobao.api.request.TbkJuTqgGetRequest;
-import com.taobao.api.request.TbkScNewuserOrderGetRequest;
-import com.taobao.api.request.TbkShopGetRequest;
-import com.taobao.api.request.TbkShopRecommendGetRequest;
-import com.taobao.api.request.TbkSpreadGetRequest;
 import com.taobao.api.request.TbkSpreadGetRequest.TbkSpreadRequest;
-import com.taobao.api.request.TbkTpwdCreateRequest;
-import com.taobao.api.request.TbkUatmEventGetRequest;
-import com.taobao.api.request.TbkUatmEventItemGetRequest;
-import com.taobao.api.request.TbkUatmFavoritesGetRequest;
-import com.taobao.api.request.TbkUatmFavoritesItemGetRequest;
-import com.taobao.api.response.JuItemsSearchResponse;
-import com.taobao.api.response.TbkAdzoneCreateResponse;
-import com.taobao.api.response.TbkCouponGetResponse;
-import com.taobao.api.response.TbkDgItemCouponGetResponse;
-import com.taobao.api.response.TbkDgNewuserOrderGetResponse;
-import com.taobao.api.response.TbkItemGetResponse;
-import com.taobao.api.response.TbkItemInfoGetResponse;
-import com.taobao.api.response.TbkItemRecommendGetResponse;
-import com.taobao.api.response.TbkJuTqgGetResponse;
-import com.taobao.api.response.TbkScNewuserOrderGetResponse;
-import com.taobao.api.response.TbkShopGetResponse;
-import com.taobao.api.response.TbkShopRecommendGetResponse;
-import com.taobao.api.response.TbkSpreadGetResponse;
-import com.taobao.api.response.TbkTpwdCreateResponse;
-import com.taobao.api.response.TbkUatmEventGetResponse;
-import com.taobao.api.response.TbkUatmEventItemGetResponse;
-import com.taobao.api.response.TbkUatmFavoritesGetResponse;
-import com.taobao.api.response.TbkUatmFavoritesItemGetResponse;
+import com.taobao.api.response.*;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Service
 public class TaoKeAPIServiceImpl implements TaoKeAPIService {
@@ -116,9 +82,9 @@ public class TaoKeAPIServiceImpl implements TaoKeAPIService {
 		Map<String, Object> result = new HashMap<String, Object>();
 		TaobaoClient client = new DefaultTaobaoClient(TaokeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
 		TbkItemInfoGetRequest req = new TbkItemInfoGetRequest();
-		req.setFields("num_iid,title,pict_url,small_images,reserve_price,zk_final_price,user_type,provcity,item_url");
-		req.setPlatform(1L);
 		req.setNumIids("123,456");
+		req.setPlatform(1L);
+		req.setIp("11.22.33.43");
 		TbkItemInfoGetResponse rsp;
 		try {
 			rsp = client.execute(req);
@@ -230,10 +196,10 @@ public class TaoKeAPIServiceImpl implements TaoKeAPIService {
 		TbkUatmFavoritesItemGetRequest req = new TbkUatmFavoritesItemGetRequest();
 		req.setPlatform(1L);
 		req.setPageSize(20L);
-		req.setAdzoneId(34567L);
-		req.setUnid("3456");
-		req.setFavoritesId(10010L);
-		req.setPageNo(2L);
+		req.setAdzoneId(1684324109L);
+//		req.setUnid("3456");
+		req.setFavoritesId(18054261L);
+		req.setPageNo(1L);
 		req.setFields("num_iid,title,pict_url,small_images,reserve_price,zk_final_price,user_type,provcity,item_url,seller_id,volume,nick,shop_title,zk_final_price_wap,event_start_time,event_end_time,tk_rate,status,type");
 		TbkUatmFavoritesItemGetResponse rsp;
 		try {
@@ -339,9 +305,9 @@ public class TaoKeAPIServiceImpl implements TaoKeAPIService {
 		Map<String, Object> result = new HashMap<String, Object>();
 		TaobaoClient client = new DefaultTaobaoClient(TaokeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
 		TbkDgItemCouponGetRequest req = new TbkDgItemCouponGetRequest();
-		req.setAdzoneId(123L);
+		req.setAdzoneId(42442030L);
 		req.setPlatform(1L);
-		req.setCat("16,18");
+//		req.setCat("16,18");
 		req.setPageSize(1L);
 		req.setQ("女装");
 		req.setPageNo(1L);
@@ -386,24 +352,6 @@ public class TaoKeAPIServiceImpl implements TaoKeAPIService {
 		req.setLogo("https://uland.taobao.com/");
 		req.setExt("{}");
 		TbkTpwdCreateResponse rsp;
-		try {
-			rsp = client.execute(req);
-			result = (Map<String, Object>) JSONObject.parse(rsp.getBody());
-		} catch (ApiException e) {
-			e.printStackTrace();
-		}
-		return result;
-	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public Map<String, Object> createAdzoneTbk(QueryParameterDTO queryParameterDTO) {
-		Map<String, Object> result = new HashMap<String, Object>();
-		TaobaoClient client = new DefaultTaobaoClient(TaokeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
-		TbkAdzoneCreateRequest req = new TbkAdzoneCreateRequest();
-		req.setSiteId(123456L);
-		req.setAdzoneName("广告位");
-		TbkAdzoneCreateResponse rsp;
 		try {
 			rsp = client.execute(req);
 			result = (Map<String, Object>) JSONObject.parse(rsp.getBody());

@@ -74,7 +74,7 @@
 			<artifactId>taobao</artifactId>
 			<version>0.1.0</version>
 			<scope>system</scope>
-            <systemPath>${project.basedir}/src/main/resources/lib/taobao-sdk-java-auto_1508141130900-20180206.jar</systemPath>
+            <systemPath>${project.basedir}/src/main/resources/lib/taobao-sdk-java-auto_1521526934105-20180710.jar</systemPath>
 		</dependency>
 		<dependency>
 		    <groupId>com.alibaba</groupId>

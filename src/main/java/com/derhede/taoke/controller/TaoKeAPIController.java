@@ -261,22 +261,6 @@ public class TaoKeAPIController {
 	}
 
 	/**
-	 * taobao.tbk.adzone.create (淘宝客广告位创建API)
-	 * @param queryParameterDTO
-	 * @return
-	 */
-	@RequestMapping(value = "/createAdzoneTbk", method = RequestMethod.POST)
-	public Map<String, Object> createAdzoneTbk(@RequestBody QueryParameterDTO queryParameterDTO) {
-		Map<String, Object> result = new HashMap<String, Object>();
-		
-		result = taoKeAPIService.createAdzoneTbk(queryParameterDTO);
-		
-		System.out.println(result);
-		
-		return result;
-	}
-
-	/**
 	 * taobao.tbk.dg.newuser.order.get (淘宝客新用户订单API--导购)
 	 * @param queryParameterDTO
 	 * @return
