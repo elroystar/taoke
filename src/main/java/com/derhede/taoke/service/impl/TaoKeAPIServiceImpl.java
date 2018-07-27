@@ -3,7 +3,7 @@ package com.derhede.taoke.service.impl;
 import com.alibaba.fastjson.JSONObject;
 import com.derhede.taoke.dto.QueryParameterDTO;
 import com.derhede.taoke.dto.TbkItemGetRequestDTO;
-import com.derhede.taoke.enums.TaokeAPIUrlConstant;
+import com.derhede.taoke.enums.TaoKeAPIUrlConstant;
 import com.derhede.taoke.service.TaoKeAPIService;
 import com.taobao.api.ApiException;
 import com.taobao.api.DefaultTaobaoClient;
@@ -35,7 +35,7 @@ public class TaoKeAPIServiceImpl implements TaoKeAPIService {
 	public Map<String, Object> getItemTbk(TbkItemGetRequestDTO dto) {
 		
 		Map<String, Object> result = new HashMap<String, Object>();
-		TaobaoClient client = new DefaultTaobaoClient(TaokeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
+		TaobaoClient client = new DefaultTaobaoClient(TaoKeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
 		dto.setFields("num_iid,title,pict_url,small_images,reserve_price,zk_final_price,user_type,provcity,item_url,seller_id,volume,nick");
 		dto.setQ("女装");
 		dto.setCat("16,18");
@@ -60,7 +60,7 @@ public class TaoKeAPIServiceImpl implements TaoKeAPIService {
 	public Map<String, Object> getRecommendItemTbk(QueryParameterDTO queryParameterDTO) {
 		
 		Map<String, Object> result = new HashMap<String, Object>();
-		TaobaoClient client = new DefaultTaobaoClient(TaokeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
+		TaobaoClient client = new DefaultTaobaoClient(TaoKeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
 		TbkItemRecommendGetRequest req = new TbkItemRecommendGetRequest();
 		req.setFields("num_iid,title,pict_url,small_images,reserve_price,zk_final_price,user_type,provcity,item_url");
 		req.setNumIid(123L);
@@ -80,7 +80,7 @@ public class TaoKeAPIServiceImpl implements TaoKeAPIService {
 	@Override
 	public Map<String, Object> getInfoItemTbk(QueryParameterDTO queryParameterDTO) {
 		Map<String, Object> result = new HashMap<String, Object>();
-		TaobaoClient client = new DefaultTaobaoClient(TaokeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
+		TaobaoClient client = new DefaultTaobaoClient(TaoKeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
 		TbkItemInfoGetRequest req = new TbkItemInfoGetRequest();
 		req.setNumIids("123,456");
 		req.setPlatform(1L);
@@ -99,7 +99,7 @@ public class TaoKeAPIServiceImpl implements TaoKeAPIService {
 	@Override
 	public Map<String, Object> getShopTbk(QueryParameterDTO queryParameterDTO) {
 		Map<String, Object> result = new HashMap<String, Object>();
-		TaobaoClient client = new DefaultTaobaoClient(TaokeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
+		TaobaoClient client = new DefaultTaobaoClient(TaoKeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
 		TbkShopGetRequest req = new TbkShopGetRequest();
 		req.setFields("user_id,shop_title,shop_type,seller_nick,pict_url,shop_url");
 		req.setQ("女装");
@@ -130,7 +130,7 @@ public class TaoKeAPIServiceImpl implements TaoKeAPIService {
 	@Override
 	public Map<String, Object> getRecommendShopTbk(QueryParameterDTO queryParameterDTO) {
 		Map<String, Object> result = new HashMap<String, Object>();
-		TaobaoClient client = new DefaultTaobaoClient(TaokeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
+		TaobaoClient client = new DefaultTaobaoClient(TaoKeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
 		TbkShopRecommendGetRequest req = new TbkShopRecommendGetRequest();
 		req.setFields("user_id,shop_title,shop_type,seller_nick,pict_url,shop_url");
 		req.setUserId(123L);
@@ -150,7 +150,7 @@ public class TaoKeAPIServiceImpl implements TaoKeAPIService {
 	@Override
 	public Map<String, Object> getEventUatmTbk(QueryParameterDTO queryParameterDTO) {
 		Map<String, Object> result = new HashMap<String, Object>();
-		TaobaoClient client = new DefaultTaobaoClient(TaokeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
+		TaobaoClient client = new DefaultTaobaoClient(TaoKeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
 		TbkUatmEventGetRequest req = new TbkUatmEventGetRequest();
 		req.setPageNo(1L);
 		req.setPageSize(20L);
@@ -169,7 +169,7 @@ public class TaoKeAPIServiceImpl implements TaoKeAPIService {
 	@Override
 	public Map<String, Object> getItemEventUatmTbk(QueryParameterDTO queryParameterDTO) {
 		Map<String, Object> result = new HashMap<String, Object>();
-		TaobaoClient client = new DefaultTaobaoClient(TaokeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
+		TaobaoClient client = new DefaultTaobaoClient(TaoKeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
 		TbkUatmEventItemGetRequest req = new TbkUatmEventItemGetRequest();
 		req.setPlatform(1L);
 		req.setPageSize(20L);
@@ -192,7 +192,7 @@ public class TaoKeAPIServiceImpl implements TaoKeAPIService {
 	@Override
 	public Map<String, Object> getItemFavoritesUatmTbk(QueryParameterDTO queryParameterDTO) {
 		Map<String, Object> result = new HashMap<String, Object>();
-		TaobaoClient client = new DefaultTaobaoClient(TaokeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
+		TaobaoClient client = new DefaultTaobaoClient(TaoKeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
 		TbkUatmFavoritesItemGetRequest req = new TbkUatmFavoritesItemGetRequest();
 		req.setPlatform(1L);
 		req.setPageSize(20L);
@@ -215,7 +215,7 @@ public class TaoKeAPIServiceImpl implements TaoKeAPIService {
 	@Override
 	public Map<String, Object> getFavoritesUatmTbk(QueryParameterDTO queryParameterDTO) {
 		Map<String, Object> result = new HashMap<String, Object>();
-		TaobaoClient client = new DefaultTaobaoClient(TaokeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
+		TaobaoClient client = new DefaultTaobaoClient(TaoKeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
 		TbkUatmFavoritesGetRequest req = new TbkUatmFavoritesGetRequest();
 		req.setPageNo(1L);
 		req.setPageSize(20L);
@@ -235,7 +235,7 @@ public class TaoKeAPIServiceImpl implements TaoKeAPIService {
 	@Override
 	public Map<String, Object> getTqgJuTbk(QueryParameterDTO queryParameterDTO) {
 		Map<String, Object> result = new HashMap<String, Object>();
-		TaobaoClient client = new DefaultTaobaoClient(TaokeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
+		TaobaoClient client = new DefaultTaobaoClient(TaoKeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
 		TbkJuTqgGetRequest req = new TbkJuTqgGetRequest();
 		req.setAdzoneId(123L);
 		req.setFields("click_url,pic_url,reserve_price,zk_final_price,total_amount,sold_num,title,category_name,start_time,end_time");
@@ -257,7 +257,7 @@ public class TaoKeAPIServiceImpl implements TaoKeAPIService {
 	@Override
 	public Map<String, Object> getSpreadTbk(QueryParameterDTO queryParameterDTO) {
 		Map<String, Object> result = new HashMap<String, Object>();
-		TaobaoClient client = new DefaultTaobaoClient(TaokeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
+		TaobaoClient client = new DefaultTaobaoClient(TaoKeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
 		TbkSpreadGetRequest req = new TbkSpreadGetRequest();
 		List<TbkSpreadRequest> list2 = new ArrayList<TbkSpreadRequest>();
 		TbkSpreadRequest obj3 = new TbkSpreadRequest();
@@ -278,7 +278,7 @@ public class TaoKeAPIServiceImpl implements TaoKeAPIService {
 	@Override
 	public Map<String, Object> getItemsJuTbk(QueryParameterDTO queryParameterDTO) {
 		Map<String, Object> result = new HashMap<String, Object>();
-		TaobaoClient client = new DefaultTaobaoClient(TaokeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
+		TaobaoClient client = new DefaultTaobaoClient(TaoKeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
 		JuItemsSearchRequest req = new JuItemsSearchRequest();
 		TopItemQuery obj1 = new TopItemQuery();
 		obj1.setCurrentPage(1L);
@@ -303,7 +303,7 @@ public class TaoKeAPIServiceImpl implements TaoKeAPIService {
 	@Override
 	public Map<String, Object> getCouponItemDgTbk(QueryParameterDTO queryParameterDTO) {
 		Map<String, Object> result = new HashMap<String, Object>();
-		TaobaoClient client = new DefaultTaobaoClient(TaokeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
+		TaobaoClient client = new DefaultTaobaoClient(TaoKeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
 		TbkDgItemCouponGetRequest req = new TbkDgItemCouponGetRequest();
 		req.setAdzoneId(42442030L);
 		req.setPlatform(1L);
@@ -325,7 +325,7 @@ public class TaoKeAPIServiceImpl implements TaoKeAPIService {
 	@Override
 	public Map<String, Object> getCouponTbk(QueryParameterDTO queryParameterDTO) {
 		Map<String, Object> result = new HashMap<String, Object>();
-		TaobaoClient client = new DefaultTaobaoClient(TaokeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
+		TaobaoClient client = new DefaultTaobaoClient(TaoKeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
 		TbkCouponGetRequest req = new TbkCouponGetRequest();
 		req.setMe("nfr%2BYTo2k1PX18gaNN%2BIPkIG2PadNYbBnwEsv6mRavWieOoOE3L9OdmbDSSyHbGxBAXjHpLKvZbL1320ML%2BCF5FRtW7N7yJ056Lgym4X01A%3D");
 		req.setItemId(123L);
@@ -344,7 +344,7 @@ public class TaoKeAPIServiceImpl implements TaoKeAPIService {
 	@Override
 	public Map<String, Object> createTpwdTbk(QueryParameterDTO queryParameterDTO) {
 		Map<String, Object> result = new HashMap<String, Object>();
-		TaobaoClient client = new DefaultTaobaoClient(TaokeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
+		TaobaoClient client = new DefaultTaobaoClient(TaoKeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
 		TbkTpwdCreateRequest req = new TbkTpwdCreateRequest();
 		req.setUserId("123");
 		req.setText("长度大于5个字符");
@@ -365,7 +365,7 @@ public class TaoKeAPIServiceImpl implements TaoKeAPIService {
 	@Override
 	public Map<String, Object> getOrderNewuserDgTbk(QueryParameterDTO queryParameterDTO) {
 		Map<String, Object> result = new HashMap<String, Object>();
-		TaobaoClient client = new DefaultTaobaoClient(TaokeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
+		TaobaoClient client = new DefaultTaobaoClient(TaoKeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
 		TbkDgNewuserOrderGetRequest req = new TbkDgNewuserOrderGetRequest();
 		req.setPageSize(20L);
 		req.setAdzoneId(123L);
@@ -384,7 +384,7 @@ public class TaoKeAPIServiceImpl implements TaoKeAPIService {
 	@Override
 	public Map<String, Object> getOrderNewuserScTbk(QueryParameterDTO queryParameterDTO) {
 		Map<String, Object> result = new HashMap<String, Object>();
-		TaobaoClient client = new DefaultTaobaoClient(TaokeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
+		TaobaoClient client = new DefaultTaobaoClient(TaoKeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
 		TbkScNewuserOrderGetRequest req = new TbkScNewuserOrderGetRequest();
 		req.setPageSize(20L);
 		req.setAdzoneId(123L);

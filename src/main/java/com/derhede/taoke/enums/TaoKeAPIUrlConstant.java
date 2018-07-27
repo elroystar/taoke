@@ -5,7 +5,7 @@ package com.derhede.taoke.enums;
  * @author chenziyi01
  *
  */
-public class TaokeAPIUrlConstant {
+public class TaoKeAPIUrlConstant {
 	
 	/**
 	 * taobao url地址
