@@ -64,6 +64,8 @@ public class TaoKeGoods {
 
     private Integer couponRemainCount;
 
+    private Integer favoritesId;
+
     public String getId() {
         return id;
     }
@@ -302,5 +304,13 @@ public class TaoKeGoods {
 
     public void setCouponRemainCount(Integer couponRemainCount) {
         this.couponRemainCount = couponRemainCount;
+    }
+
+    public Integer getFavoritesId() {
+        return favoritesId;
+    }
+
+    public void setFavoritesId(Integer favoritesId) {
+        this.favoritesId = favoritesId;
     }
 }

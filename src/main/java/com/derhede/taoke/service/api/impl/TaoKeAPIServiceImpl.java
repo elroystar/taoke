@@ -1,10 +1,12 @@
-package com.derhede.taoke.service.impl;
+package com.derhede.taoke.service.api.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.derhede.taoke.dto.QueryParameterDTO;
+import com.derhede.taoke.dto.TaoKeFavorites;
+import com.derhede.taoke.dto.TaoKeGoods;
 import com.derhede.taoke.dto.TbkItemGetRequestDTO;
 import com.derhede.taoke.enums.TaoKeAPIUrlConstant;
-import com.derhede.taoke.service.TaoKeAPIService;
+import com.derhede.taoke.service.api.TaoKeAPIService;
 import com.taobao.api.ApiException;
 import com.taobao.api.DefaultTaobaoClient;
 import com.taobao.api.TaobaoClient;
@@ -205,6 +207,33 @@ public class TaoKeAPIServiceImpl implements TaoKeAPIService {
 		try {
 			rsp = client.execute(req);
 			result = (Map<String, Object>) JSONObject.parse(rsp.getBody());
+		} catch (ApiException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	/**
+	 * 获取淘宝联盟选品库的宝贝信息
+	 * @param taoKeFavorites
+	 * @return
+	 */
+	@Override
+	public List<TaoKeGoods> getItemFavoritesUatmTbk(TaoKeFavorites taoKeFavorites) {
+		List<TaoKeGoods> result = new ArrayList<>();
+		TaobaoClient client = new DefaultTaobaoClient(TaoKeAPIUrlConstant.TAOBAO_GET_HTTP, appkey, secret);
+		TbkUatmFavoritesItemGetRequest req = new TbkUatmFavoritesItemGetRequest();
+		req.setPlatform(1L);
+		req.setPageSize(20L);
+		req.setAdzoneId(1684324109L);
+//		req.setUnid("3456");
+		req.setFavoritesId(Long.valueOf(taoKeFavorites.getGroupId()));
+		req.setPageNo(1L);
+		req.setFields("num_iid,title,pict_url,small_images,reserve_price,zk_final_price,user_type,provcity,item_url,seller_id,volume,nick,shop_title,zk_final_price_wap,event_start_time,event_end_time,tk_rate,status,type");
+		TbkUatmFavoritesItemGetResponse rsp;
+		try {
+			rsp = client.execute(req);
+
 		} catch (ApiException e) {
 			e.printStackTrace();
 		}

@@ -15,6 +15,8 @@ public class TaoKeFavorites {
 
     private String groupName;
 
+    private Byte state;
+
     public Integer getId() {
         return id;
     }
@@ -61,5 +63,13 @@ public class TaoKeFavorites {
 
     public void setGroupName(String groupName) {
         this.groupName = groupName == null ? null : groupName.trim();
+    }
+
+    public Byte getState() {
+        return state;
+    }
+
+    public void setState(Byte state) {
+        this.state = state;
     }
 }

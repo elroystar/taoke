@@ -1,8 +1,11 @@
-package com.derhede.taoke.service;
+package com.derhede.taoke.service.api;
 
+import java.util.List;
 import java.util.Map;
 
 import com.derhede.taoke.dto.QueryParameterDTO;
+import com.derhede.taoke.dto.TaoKeFavorites;
+import com.derhede.taoke.dto.TaoKeGoods;
 import com.derhede.taoke.dto.TbkItemGetRequestDTO;
 
 public interface TaoKeAPIService {
@@ -23,6 +26,13 @@ public interface TaoKeAPIService {
 
 	Map<String, Object> getItemFavoritesUatmTbk(QueryParameterDTO queryParameterDTO);
 
+	/**
+	 * 获取淘宝联盟选品库的宝贝信息
+	 * @param taoKeFavorites
+	 * @return
+	 */
+	List<TaoKeGoods> getItemFavoritesUatmTbk(TaoKeFavorites taoKeFavorites);
+
 	Map<String, Object> getFavoritesUatmTbk(QueryParameterDTO queryParameterDTO);
 
 	Map<String, Object> getTqgJuTbk(QueryParameterDTO queryParameterDTO);
@@ -40,5 +50,4 @@ public interface TaoKeAPIService {
 	Map<String, Object> getOrderNewuserDgTbk(QueryParameterDTO queryParameterDTO);
 
 	Map<String, Object> getOrderNewuserScTbk(QueryParameterDTO queryParameterDTO);
-
 }

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.derhede.taoke.dto.QueryParameterDTO;
 import com.derhede.taoke.dto.TbkItemGetRequestDTO;
-import com.derhede.taoke.service.TaoKeAPIService;
+import com.derhede.taoke.service.api.TaoKeAPIService;
 
 @RestController
 @RequestMapping(value = "/taokeAPI")

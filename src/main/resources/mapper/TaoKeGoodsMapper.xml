@@ -32,13 +32,14 @@
     <result column="coupon_start_time" jdbcType="VARCHAR" property="couponStartTime" />
     <result column="coupon_total_count" jdbcType="INTEGER" property="couponTotalCount" />
     <result column="coupon_remain_count" jdbcType="INTEGER" property="couponRemainCount" />
+    <result column="favorites_id" jdbcType="INTEGER" property="favoritesId" />
   </resultMap>
   <sql id="Base_Column_List">
     id, create_time, update_time, version, num_iid, title, pict_url, small_images, reserve_price, 
     zk_final_price, user_type, provcity, item_url, click_url, nick, seller_id, volume, 
     tk_rate, zk_final_price_wap, event_start_time, event_end_time, type, status, category, 
     coupon_click_url, coupon_end_time, coupon_info, coupon_start_time, coupon_total_count, 
-    coupon_remain_count
+    coupon_remain_count, favorites_id
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
@@ -60,10 +61,10 @@
       zk_final_price_wap, event_start_time, event_end_time, 
       type, status, category, 
       coupon_click_url, coupon_end_time, coupon_info, 
-      coupon_start_time, coupon_total_count, coupon_remain_count
-      )
-    values (#{id,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
-      #{version,jdbcType=INTEGER}, #{numIid,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, 
+      coupon_start_time, coupon_total_count, coupon_remain_count, 
+      favorites_id)
+    values ((select replace(uuid(),'-','') from dual), (now()), (now()),
+      0,, #{numIid,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR},
       #{pictUrl,jdbcType=VARCHAR}, #{smallImages,jdbcType=VARCHAR}, #{reservePrice,jdbcType=DECIMAL}, 
       #{zkFinalPrice,jdbcType=DECIMAL}, #{userType,jdbcType=INTEGER}, #{provcity,jdbcType=VARCHAR}, 
       #{itemUrl,jdbcType=VARCHAR}, #{clickUrl,jdbcType=VARCHAR}, #{nick,jdbcType=VARCHAR}, 
@@ -71,8 +72,35 @@
       #{zkFinalPriceWap,jdbcType=VARCHAR}, #{eventStartTime,jdbcType=TIMESTAMP}, #{eventEndTime,jdbcType=TIMESTAMP}, 
       #{type,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{category,jdbcType=INTEGER}, 
       #{couponClickUrl,jdbcType=VARCHAR}, #{couponEndTime,jdbcType=VARCHAR}, #{couponInfo,jdbcType=VARCHAR}, 
-      #{couponStartTime,jdbcType=VARCHAR}, #{couponTotalCount,jdbcType=INTEGER}, #{couponRemainCount,jdbcType=INTEGER}
-      )
+      #{couponStartTime,jdbcType=VARCHAR}, #{couponTotalCount,jdbcType=INTEGER}, #{couponRemainCount,jdbcType=INTEGER}, 
+      #{favoritesId,jdbcType=INTEGER})
+  </insert>
+  <insert id="batchInsert" parameterType="java.util.List">
+    insert into taoke_goods (id, create_time, update_time,
+      version, num_iid, title,
+      pict_url, small_images, reserve_price,
+      zk_final_price, user_type, provcity,
+      item_url, click_url, nick,
+      seller_id, volume, tk_rate,
+      zk_final_price_wap, event_start_time, event_end_time,
+      type, status, category,
+      coupon_click_url, coupon_end_time, coupon_info,
+      coupon_start_time, coupon_total_count, coupon_remain_count,
+      favorites_id)
+    values
+    <foreach collection="list" item="item" separator=",">
+      ((select replace(uuid(),'-','') from dual), (now()), (now()),
+      0, #{numIid,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR},
+      #{pictUrl,jdbcType=VARCHAR}, #{smallImages,jdbcType=VARCHAR}, #{reservePrice,jdbcType=DECIMAL},
+      #{zkFinalPrice,jdbcType=DECIMAL}, #{userType,jdbcType=INTEGER}, #{provcity,jdbcType=VARCHAR},
+      #{itemUrl,jdbcType=VARCHAR}, #{clickUrl,jdbcType=VARCHAR}, #{nick,jdbcType=VARCHAR},
+      #{sellerId,jdbcType=INTEGER}, #{volume,jdbcType=INTEGER}, #{tkRate,jdbcType=VARCHAR},
+      #{zkFinalPriceWap,jdbcType=VARCHAR}, #{eventStartTime,jdbcType=TIMESTAMP}, #{eventEndTime,jdbcType=TIMESTAMP},
+      #{type,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{category,jdbcType=INTEGER},
+      #{couponClickUrl,jdbcType=VARCHAR}, #{couponEndTime,jdbcType=VARCHAR}, #{couponInfo,jdbcType=VARCHAR},
+      #{couponStartTime,jdbcType=VARCHAR}, #{couponTotalCount,jdbcType=INTEGER}, #{couponRemainCount,jdbcType=INTEGER},
+      #{favoritesId,jdbcType=INTEGER})
+    </foreach>
   </insert>
   <insert id="insertSelective" parameterType="com.derhede.taoke.dto.TaoKeGoods">
     insert into taoke_goods
@@ -167,6 +195,9 @@
       <if test="couponRemainCount != null">
         coupon_remain_count,
       </if>
+      <if test="favoritesId != null">
+        favorites_id,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -258,6 +289,9 @@
       </if>
       <if test="couponRemainCount != null">
         #{couponRemainCount,jdbcType=INTEGER},
+      </if>
+      <if test="favoritesId != null">
+        #{favoritesId,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -351,6 +385,9 @@
       <if test="couponRemainCount != null">
         coupon_remain_count = #{couponRemainCount,jdbcType=INTEGER},
       </if>
+      <if test="favoritesId != null">
+        favorites_id = #{favoritesId,jdbcType=INTEGER},
+      </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
@@ -384,7 +421,8 @@
       coupon_info = #{couponInfo,jdbcType=VARCHAR},
       coupon_start_time = #{couponStartTime,jdbcType=VARCHAR},
       coupon_total_count = #{couponTotalCount,jdbcType=INTEGER},
-      coupon_remain_count = #{couponRemainCount,jdbcType=INTEGER}
+      coupon_remain_count = #{couponRemainCount,jdbcType=INTEGER},
+      favorites_id = #{favoritesId,jdbcType=INTEGER}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>
