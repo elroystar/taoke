@@ -1,6 +1,7 @@
 package com.derhede.taoke.service.api.impl;
 
 import com.alibaba.fastjson.JSONObject;
+import com.derhede.taoke.assembler.AssemblerGoods;
 import com.derhede.taoke.dto.QueryParameterDTO;
 import com.derhede.taoke.dto.TaoKeFavorites;
 import com.derhede.taoke.dto.TaoKeGoods;
@@ -233,7 +234,7 @@ public class TaoKeAPIServiceImpl implements TaoKeAPIService {
 		TbkUatmFavoritesItemGetResponse rsp;
 		try {
 			rsp = client.execute(req);
-
+			result = AssemblerGoods.toGoodsList(rsp, taoKeFavorites);
 		} catch (ApiException e) {
 			e.printStackTrace();
 		}

@@ -6,7 +6,7 @@
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="version" jdbcType="INTEGER" property="version" />
-    <result column="num_iid" jdbcType="INTEGER" property="numIid" />
+    <result column="num_iid" jdbcType="VARCHAR" property="numIid" />
     <result column="title" jdbcType="VARCHAR" property="title" />
     <result column="pict_url" jdbcType="VARCHAR" property="pictUrl" />
     <result column="small_images" jdbcType="VARCHAR" property="smallImages" />
@@ -17,7 +17,7 @@
     <result column="item_url" jdbcType="VARCHAR" property="itemUrl" />
     <result column="click_url" jdbcType="VARCHAR" property="clickUrl" />
     <result column="nick" jdbcType="VARCHAR" property="nick" />
-    <result column="seller_id" jdbcType="INTEGER" property="sellerId" />
+    <result column="seller_id" jdbcType="VARCHAR" property="sellerId" />
     <result column="volume" jdbcType="INTEGER" property="volume" />
     <result column="tk_rate" jdbcType="VARCHAR" property="tkRate" />
     <result column="zk_final_price_wap" jdbcType="VARCHAR" property="zkFinalPriceWap" />
@@ -42,7 +42,7 @@
     coupon_remain_count, favorites_id
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from taoke_goods
     where id = #{id,jdbcType=VARCHAR}
@@ -64,11 +64,11 @@
       coupon_start_time, coupon_total_count, coupon_remain_count, 
       favorites_id)
     values ((select replace(uuid(),'-','') from dual), (now()), (now()),
-      0,, #{numIid,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR},
+      0, #{numIid,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR},
       #{pictUrl,jdbcType=VARCHAR}, #{smallImages,jdbcType=VARCHAR}, #{reservePrice,jdbcType=DECIMAL}, 
       #{zkFinalPrice,jdbcType=DECIMAL}, #{userType,jdbcType=INTEGER}, #{provcity,jdbcType=VARCHAR}, 
       #{itemUrl,jdbcType=VARCHAR}, #{clickUrl,jdbcType=VARCHAR}, #{nick,jdbcType=VARCHAR}, 
-      #{sellerId,jdbcType=INTEGER}, #{volume,jdbcType=INTEGER}, #{tkRate,jdbcType=VARCHAR}, 
+      #{sellerId,jdbcType=VARCHAR}, #{volume,jdbcType=INTEGER}, #{tkRate,jdbcType=VARCHAR},
       #{zkFinalPriceWap,jdbcType=VARCHAR}, #{eventStartTime,jdbcType=TIMESTAMP}, #{eventEndTime,jdbcType=TIMESTAMP}, 
       #{type,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{category,jdbcType=INTEGER}, 
       #{couponClickUrl,jdbcType=VARCHAR}, #{couponEndTime,jdbcType=VARCHAR}, #{couponInfo,jdbcType=VARCHAR}, 
@@ -90,16 +90,16 @@
     values
     <foreach collection="list" item="item" separator=",">
       ((select replace(uuid(),'-','') from dual), (now()), (now()),
-      0, #{numIid,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR},
-      #{pictUrl,jdbcType=VARCHAR}, #{smallImages,jdbcType=VARCHAR}, #{reservePrice,jdbcType=DECIMAL},
-      #{zkFinalPrice,jdbcType=DECIMAL}, #{userType,jdbcType=INTEGER}, #{provcity,jdbcType=VARCHAR},
-      #{itemUrl,jdbcType=VARCHAR}, #{clickUrl,jdbcType=VARCHAR}, #{nick,jdbcType=VARCHAR},
-      #{sellerId,jdbcType=INTEGER}, #{volume,jdbcType=INTEGER}, #{tkRate,jdbcType=VARCHAR},
-      #{zkFinalPriceWap,jdbcType=VARCHAR}, #{eventStartTime,jdbcType=TIMESTAMP}, #{eventEndTime,jdbcType=TIMESTAMP},
-      #{type,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{category,jdbcType=INTEGER},
-      #{couponClickUrl,jdbcType=VARCHAR}, #{couponEndTime,jdbcType=VARCHAR}, #{couponInfo,jdbcType=VARCHAR},
-      #{couponStartTime,jdbcType=VARCHAR}, #{couponTotalCount,jdbcType=INTEGER}, #{couponRemainCount,jdbcType=INTEGER},
-      #{favoritesId,jdbcType=INTEGER})
+      0, #{item.numIid,jdbcType=VARCHAR}, #{item.title,jdbcType=VARCHAR},
+      #{item.pictUrl,jdbcType=VARCHAR}, #{item.smallImages,jdbcType=VARCHAR}, #{item.reservePrice,jdbcType=DECIMAL},
+      #{item.zkFinalPrice,jdbcType=DECIMAL}, #{item.userType,jdbcType=INTEGER}, #{item.provcity,jdbcType=VARCHAR},
+      #{item.itemUrl,jdbcType=VARCHAR}, #{item.clickUrl,jdbcType=VARCHAR}, #{item.nick,jdbcType=VARCHAR},
+      #{item.sellerId,jdbcType=VARCHAR}, #{item.volume,jdbcType=INTEGER}, #{item.tkRate,jdbcType=VARCHAR},
+      #{item.zkFinalPriceWap,jdbcType=VARCHAR}, #{item.eventStartTime,jdbcType=TIMESTAMP}, #{item.eventEndTime,jdbcType=TIMESTAMP},
+      #{item.type,jdbcType=INTEGER}, #{item.status,jdbcType=INTEGER}, #{item.category,jdbcType=INTEGER},
+      #{item.couponClickUrl,jdbcType=VARCHAR}, #{item.couponEndTime,jdbcType=VARCHAR}, #{item.couponInfo,jdbcType=VARCHAR},
+      #{item.couponStartTime,jdbcType=VARCHAR}, #{item.couponTotalCount,jdbcType=INTEGER}, #{item.couponRemainCount,jdbcType=INTEGER},
+      #{item.favoritesId,jdbcType=INTEGER})
     </foreach>
   </insert>
   <insert id="insertSelective" parameterType="com.derhede.taoke.dto.TaoKeGoods">
@@ -213,7 +213,7 @@
         #{version,jdbcType=INTEGER},
       </if>
       <if test="numIid != null">
-        #{numIid,jdbcType=INTEGER},
+        #{numIid,jdbcType=VARCHAR},
       </if>
       <if test="title != null">
         #{title,jdbcType=VARCHAR},
@@ -246,7 +246,7 @@
         #{nick,jdbcType=VARCHAR},
       </if>
       <if test="sellerId != null">
-        #{sellerId,jdbcType=INTEGER},
+        #{sellerId,jdbcType=VARCHAR},
       </if>
       <if test="volume != null">
         #{volume,jdbcType=INTEGER},
@@ -308,7 +308,7 @@
         version = #{version,jdbcType=INTEGER},
       </if>
       <if test="numIid != null">
-        num_iid = #{numIid,jdbcType=INTEGER},
+        num_iid = #{numIid,jdbcType=VARCHAR},
       </if>
       <if test="title != null">
         title = #{title,jdbcType=VARCHAR},
@@ -341,7 +341,7 @@
         nick = #{nick,jdbcType=VARCHAR},
       </if>
       <if test="sellerId != null">
-        seller_id = #{sellerId,jdbcType=INTEGER},
+        seller_id = #{sellerId,jdbcType=VARCHAR},
       </if>
       <if test="volume != null">
         volume = #{volume,jdbcType=INTEGER},
@@ -396,7 +396,7 @@
     set create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       version = #{version,jdbcType=INTEGER},
-      num_iid = #{numIid,jdbcType=INTEGER},
+      num_iid = #{numIid,jdbcType=VARCHAR},
       title = #{title,jdbcType=VARCHAR},
       pict_url = #{pictUrl,jdbcType=VARCHAR},
       small_images = #{smallImages,jdbcType=VARCHAR},
@@ -407,7 +407,7 @@
       item_url = #{itemUrl,jdbcType=VARCHAR},
       click_url = #{clickUrl,jdbcType=VARCHAR},
       nick = #{nick,jdbcType=VARCHAR},
-      seller_id = #{sellerId,jdbcType=INTEGER},
+      seller_id = #{sellerId,jdbcType=VARCHAR},
       volume = #{volume,jdbcType=INTEGER},
       tk_rate = #{tkRate,jdbcType=VARCHAR},
       zk_final_price_wap = #{zkFinalPriceWap,jdbcType=VARCHAR},

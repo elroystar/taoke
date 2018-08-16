@@ -34,7 +34,7 @@
       version, group_id, group_name, 
       state)
     values ((select replace(uuid(),'-','') from dual), (now()), (now()),
-      0,, #{groupId,jdbcType=VARCHAR}, #{groupName,jdbcType=VARCHAR},
+      0, #{groupId,jdbcType=VARCHAR}, #{groupName,jdbcType=VARCHAR},
       #{state,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="com.derhede.taoke.dto.TaoKeFavorites">

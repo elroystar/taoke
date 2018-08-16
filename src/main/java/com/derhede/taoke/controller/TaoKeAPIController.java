@@ -3,6 +3,7 @@ package com.derhede.taoke.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.derhede.taoke.service.task.TaskTimerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,9 @@ public class TaoKeAPIController {
 
 	@Autowired
 	private TaoKeAPIService taoKeAPIService;
+
+	@Autowired
+	private TaskTimerService taskTimerService;
 	
 	/**
 	 * taobao.tbk.item.get (淘宝客商品查询)
@@ -141,11 +145,14 @@ public class TaoKeAPIController {
 	public Map<String, Object> getItemFavoritesUatmTbk(@RequestBody QueryParameterDTO queryParameterDTO) {
 		Map<String, Object> result = new HashMap<String, Object>();
 		
-		result = taoKeAPIService.getItemFavoritesUatmTbk(queryParameterDTO);
+		/*result = taoKeAPIService.getItemFavoritesUatmTbk(queryParameterDTO);
 		
 		System.out.println(result);
 		
-		return result;
+		return result;*/
+		taskTimerService.favoritesUpdate();
+
+		return null;
 	}
 
 	/**

@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class TaoKeGoods {
+
     private String id;
 
     private Date createTime;
@@ -12,7 +13,7 @@ public class TaoKeGoods {
 
     private Integer version;
 
-    private Integer numIid;
+    private String numIid;
 
     private String title;
 
@@ -34,7 +35,7 @@ public class TaoKeGoods {
 
     private String nick;
 
-    private Integer sellerId;
+    private String sellerId;
 
     private Integer volume;
 
@@ -98,11 +99,11 @@ public class TaoKeGoods {
         this.version = version;
     }
 
-    public Integer getNumIid() {
+    public String getNumIid() {
         return numIid;
     }
 
-    public void setNumIid(Integer numIid) {
+    public void setNumIid(String numIid) {
         this.numIid = numIid;
     }
 
@@ -186,11 +187,11 @@ public class TaoKeGoods {
         this.nick = nick == null ? null : nick.trim();
     }
 
-    public Integer getSellerId() {
+    public String getSellerId() {
         return sellerId;
     }
 
-    public void setSellerId(Integer sellerId) {
+    public void setSellerId(String sellerId) {
         this.sellerId = sellerId;
     }
 

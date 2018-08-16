@@ -44,7 +44,7 @@ public class TaskTimerServiceImpl extends BaseLogUtil implements TaskTimerServic
                 taoKeGoodsMapper.batchInsert(goods);
             }
         } else {
-            logger.info("=====无有效的选品库数据 =====");
+            logger.info("=====无效的选品库数据 =====");
         }
 
     }
